@@ -32,6 +32,6 @@ public class WiseSayingController {
         }
     }
 
-    public void delete() {
+    public void remove() {
     }
 }
