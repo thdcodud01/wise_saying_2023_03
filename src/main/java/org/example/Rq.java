@@ -19,7 +19,7 @@ public class Rq {
         for (String paramsStr : paramsBits) { //paramBits를 받을 변수의 이름을 ':' 앞에 선언해준 것
             String[] paramStrBits = paramsStr.split("=", 2);
 
-            if (paramStrBits.length == 1) continue; // 배열 1개일때 정상적으로 진행 (안전성 위한 코드)
+            if (paramStrBits.length == 1) continue; // 배열 1개일때 정상적으로 진행 (안전성 위한 코드) / 다시 반복문으로 돌아가는 코드
 
             String key = paramStrBits[0];
             String value = paramStrBits[1];
@@ -32,7 +32,12 @@ public class Rq {
     }
 
     public String getParams(String name) {
-        return params.get(name);
+        try {
+            return params.get(name);
+        } catch (NullPointerException e) {
+            return "-1";
+        }
+
     }
 
     public int getIntParam(String name, int defaultValue) {

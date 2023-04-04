@@ -38,6 +38,7 @@ public class WiseSayingController {
 
         int id = rq.getIntParam("id", -1); // 비어있는 값 대신 null 대신 -1로 setting
 
+
         if (id == -1) {
             System.out.printf("please enter integer value\n");
             return;
@@ -75,16 +76,17 @@ public class WiseSayingController {
             System.out.printf("Don't need to modify");
             return;
         }
-        System.out.printf("original wise_saying %s", wiseSaying.getContent());
+        System.out.printf("original wise_saying %s\n", wiseSaying.getContent());
         System.out.printf("wise_saying to be modified) ");
         String Content = Container.getScanner().nextLine().trim();
 
-        System.out.printf("original author %s", wiseSaying.getContent());
+        System.out.printf("original author %s\n", wiseSaying.getContent());
         System.out.printf("authorName to be modified) ");
         String authorName = Container.getScanner().nextLine().trim();
 
         wiseSaying.setContent(Content);
         wiseSaying.setAuthorName(authorName);
 
+        System.out.printf("NO. %d has been modified\n", wiseSaying.getId());
     }
 }
