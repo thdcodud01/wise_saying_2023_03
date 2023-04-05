@@ -9,7 +9,7 @@ import java.util.List;
 
 public class WiseSayingController {
     long lastWiseSayingId = 0;
-    List<WiseSaying> wiseSayings = new ArrayList<>();
+    ArrayList<WiseSaying> wiseSayings = new ArrayList<WiseSaying>(); // arraylist 라는 list를 유동적으로 받을 수 있는 상자를 선언
 
     public void write() {
         System.out.printf("wise_saying : ");
@@ -18,7 +18,7 @@ public class WiseSayingController {
         String authorName = Container.getScanner().nextLine().trim();
 
         long id = lastWiseSayingId + 1;
-        wiseSayings.add(new WiseSaying(id, content, authorName));
+        wiseSayings.add(new WiseSaying(id, content, authorName)); // 배열을 add라는 함수에 추가해주겠다
 
         System.out.printf("#%d number wise_saying is register \n", id);
         lastWiseSayingId = id;
@@ -26,9 +26,9 @@ public class WiseSayingController {
 
     public void list() {
         System.out.println("Id / Author / Wise_saying");
-        System.out.println("-".repeat(25));
+        System.out.println("-".repeat(25)); // repeat함수는 숫자만 적어주면 그 횟수만큼 출력 -> =를 25번 출력
 
-        for (int i = wiseSayings.size() - 1; i >= 0; i--) {
+        for (int i = wiseSayings.size() - 1; i >= 0; i--) { // 가장 마지막에 있는 값의 i는 배열의 크기보다 1 작은 초기값으로 시작,
             System.out.println(wiseSayings.get(i).getId() + " / " + wiseSayings.get(i).getAuthorName() + " / " + wiseSayings.get(i).getContent());
         }
     }
